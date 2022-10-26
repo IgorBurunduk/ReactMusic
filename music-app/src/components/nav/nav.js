@@ -1,5 +1,7 @@
+import { useState } from 'react'
 import './nav.css'
 import MenuBlock from '../menu/menu'
+
 
 function NavBlock(props) {
   let classes = 'nav '
@@ -7,11 +9,13 @@ function NavBlock(props) {
     classes += props.addClass
   }
 
+  const [openMenu, setOpenMenu] = useState(false);
+
   return (
     <nav className={classes}>
       <NavLogo addClass='nav__logo' alt='logo' />
-      <NavBurger addClass='nav__burger' />
-      <MenuBlock addClass='nav__menu' />
+      <NavBurger addClass='nav__burger' openMenu={openMenu} setOpenMenu={setOpenMenu} />
+      <MenuBlock addClass='nav__menu' openMenu={openMenu} setOpenMenu={setOpenMenu} />
     </nav>
   );
 }
@@ -35,12 +39,17 @@ function NavBurger(props) {
     classes += props.addClass
   }
 
+  if(props.openMenu) {
+    classes += ' opened'
+  }
+
+
   return (
-    <div className={classes}>
+    <button type='button' className={classes} onClick={() => props.setOpenMenu(!props.openMenu)}>
       <span className='burger__line' />
       <span className='burger__line' />
       <span className='burger__line' />
-    </div>
+    </button>
   );
 }
 

@@ -1,5 +1,5 @@
 import './content.css';
-import PlaylistTitle from '../playlistTitle/playlistTitle'
+import PlaylistTitle from '../playlist-title/playlist-title'
 import PlaylistBlock from '../playlist/playlist'
 
 function ContentBlock() {

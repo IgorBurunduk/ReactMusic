@@ -1,5 +1,5 @@
 import './playlist.css'
-import TrackBlock from '../trackBlock/track'
+import TrackBlock from '../track/track'
 
 const allTracks = [
   {

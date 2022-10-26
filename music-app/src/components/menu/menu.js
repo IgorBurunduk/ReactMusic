@@ -4,6 +4,10 @@ function MenuBlock(props) {
     classes += props.addClass
   }
 
+  if(props.openMenu) {
+    classes += ' opened'
+  }
+
   const menuList = [
     {
       link: 'https://',
@@ -18,6 +22,7 @@ function MenuBlock(props) {
       text: 'Войти'
     }
   ]
+
 
   return (
     <div className={classes}>

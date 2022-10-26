@@ -1,4 +1,4 @@
-import AppContainer from './components/appContainer/appContainer'
+import Container from './components/container/container'
 import MainBlock from './components/main/main'
 import BarBlock from './components/bar/bar'
 import Footer from './components/footer/footer'
@@ -7,11 +7,11 @@ import Footer from './components/footer/footer'
 function App() {
   return (
     <div className="wrapper">
-      <AppContainer>
+      <Container>
         <MainBlock />
         <BarBlock />
         <Footer />
-      </AppContainer>
+      </Container>
     </div>
   );
 }
