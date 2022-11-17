@@ -15,7 +15,7 @@ function NavBlock(props) {
     <nav className={classes}>
       <NavLogo addClass='nav__logo' alt='logo' />
       <NavBurger addClass='nav__burger' openMenu={openMenu} setOpenMenu={setOpenMenu} />
-      <MenuBlock addClass='nav__menu' openMenu={openMenu} setOpenMenu={setOpenMenu} />
+      <MenuBlock addClass='nav__menu' openMenu={openMenu} />
     </nav>
   );
 }
