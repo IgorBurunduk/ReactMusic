@@ -1,5 +1,8 @@
+import {useEffect, useState} from 'react';
 import './playlist.css'
 import TrackBlock from '../track/track'
+import Skeleton from '../skeleton/skeleton';
+
 
 const allTracks = [
   {
@@ -86,15 +89,39 @@ const allTracks = [
 
 
 function PlaylistBlock(props) {
-  let classes = 'playlist '
-  if (props.addClass) {
-    classes += props.addClass
-  }
+  let classes = props.addClass ? `playlist loading ${props.addClass}` : `playlist loading `
+
+  const [elClass, setElClass] = useState(classes);
+  const [load, setLoad] = useState(false);
+
+  useEffect(() => {
+    const loadingTimer = setTimeout(() => {
+      setLoad(!load)
+      classes = classes.replace('loading ', ' ')
+      setElClass(classes)
+    }, 5000)
+    return () => {
+      clearTimeout(loadingTimer)
+    }
+  }, []);
+
 
   return (
-    <div className={classes}>
-      {
-        allTracks.map((item)=><PlaylistItem key={item.track.name} track={item.track} author={item.author} album={item.album}/>)
+    <div className={elClass}>
+      {load
+        ?
+        allTracks.map((item) => <PlaylistItem key={item.track.name} track={item.track} author={item.author}
+                                              album={item.album}/>)
+        :
+        <div>
+          <Skeleton elem="playlist"/>
+          <Skeleton elem="playlist"/>
+          <Skeleton elem="playlist"/>
+          <Skeleton elem="playlist"/>
+          <Skeleton elem="playlist"/>
+          <Skeleton elem="playlist"/>
+        </div>
+
       }
     </div>
   )
@@ -102,14 +129,14 @@ function PlaylistBlock(props) {
 
 function PlaylistItem(props) {
   return (
-   <div className='playlist__item'>
-     <TrackBlock
-       addClass='playlist__track'
-       track={props.track}
-       author={props.author}
-       album={props.album}
-     />
-   </div>
+    <div className="playlist__item">
+      <TrackBlock
+        addClass="playlist__track"
+        track={props.track}
+        author={props.author}
+        album={props.album}
+      />
+    </div>
   )
 }
 
