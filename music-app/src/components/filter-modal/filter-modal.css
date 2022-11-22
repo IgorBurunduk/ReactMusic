@@ -1,0 +1,21 @@
+.filter__modal {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin-top: 10px;
+    background: #313131;
+    color: #fff;
+    font-size: 2rem;
+    display: block;
+    border-radius: 12px;
+    width: auto;
+    height: auto;
+    padding: 34px;
+}
+
+.filter__modal.active {
+    opacity: 1;
+    visibility: visible;
+}

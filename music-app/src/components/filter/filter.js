@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import {useState} from 'react'
 import './filter.css'
 import FilterButton from '../filter-button/filter-button'
+import FilterModal from '../filter-modal/filter-modal';
 
 
 function FilterBlock(props) {
@@ -8,6 +9,7 @@ function FilterBlock(props) {
   if (props.addClass) {
     classes += props.addClass
   }
+
 
   const filterButtons = [{
     filterVar: 'author',
@@ -23,7 +25,9 @@ function FilterBlock(props) {
     btnText: 'жанру'
   }]
 
+
   const [openFilter, setFilters] = useState('')
+  const [propEl, setPropEl] = useState(0);
 
   const resultFilters = filterButtons.map(btn =>
     <FilterButton
@@ -33,12 +37,14 @@ function FilterBlock(props) {
       btnText={btn.btnText}
       openedFilter={openFilter}
       setOpenFilter={setFilters}
-
+      propEl={propEl}
+      setPropEl={setPropEl}
     />)
 
   return (<div className={classes}>
-    <div className='filter__title'>Искать по:</div>
+    <div className="filter__title">Искать по:</div>
     {resultFilters}
+    <FilterModal openedFilter={openFilter} propEl={propEl}/>
   </div>)
 }
 
