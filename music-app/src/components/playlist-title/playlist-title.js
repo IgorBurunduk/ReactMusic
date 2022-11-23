@@ -1,4 +1,4 @@
-import './playlistTitle.css';
+import './playlist-title.css';
 
 function PlaylistTitle(props) {
   let classes = 'playlist-title '

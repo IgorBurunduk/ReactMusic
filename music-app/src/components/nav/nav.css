@@ -11,6 +11,8 @@
     width: 20px;
     height: 36px;
     padding: 13px 0;
+    background: none;
+    border: none;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -21,11 +23,31 @@
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
+    cursor: pointer;
+}
+
+.nav__burger.opened .burger__line:nth-child(2n){
+    display: none;
+}
+
+.nav__burger.opened .burger__line:nth-child(n){
+    transform: rotate(45deg);
+}
+
+.nav__burger.opened .burger__line:nth-child(3n){
+    transform: rotate(125deg)  translate(-7px, 5px);
 }
 
 .nav__menu {
     display: block;
+    visibility: hidden;
+    opacity: 0;
+    transition: all .3s ease;
+}
+
+.nav__menu.opened {
     visibility: visible;
+    opacity: 1;
 }
 
 .logo__image {
@@ -39,6 +61,7 @@
     width: 100%;
     height: 1px;
     background-color: #D3D3D3;
+    transition: all .3s ease;
 }
 
 .menu__list {

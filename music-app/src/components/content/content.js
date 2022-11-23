@@ -1,10 +1,10 @@
 import './content.css';
-import PlaylistTitle from '../playlistTitle/playlistTitle'
+import PlaylistTitle from '../playlist-title/playlist-title'
 import PlaylistBlock from '../playlist/playlist'
 
-function ContentBlock(props) {
+function ContentBlock() {
   return (
-   <div className='content'>
+   <div className='centerblock__content'>
      <PlaylistTitle addClass='content__title'/>
      <PlaylistBlock addClass='content__playlist' />
    </div>

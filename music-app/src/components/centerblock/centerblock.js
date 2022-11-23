@@ -1,9 +1,9 @@
-import './centerBlock.css'
+import './centerblock.css'
 import SearchBlock from '../search/search'
 import FilterBlock from '../filter/filter'
-import PlaylistBlock from '../playlist/playlist'
+import ContentBlock from '../content/content'
 
-function CenterBlock(props) {
+function Centerblock(props) {
   let classes = 'centerblock '
   if (props.addClass) {
     classes += props.addClass
@@ -14,9 +14,9 @@ function CenterBlock(props) {
       <SearchBlock addClass='centerblock__search' />
       <h2 className='centerblock__h2'>Треки</h2>
       <FilterBlock addClass='centerblock__filter' />
-      <PlaylistBlock addClass='content__playlist' />
+      <ContentBlock />
     </div>
-  );
+  )
 }
 
-export default CenterBlock;
+export default Centerblock
