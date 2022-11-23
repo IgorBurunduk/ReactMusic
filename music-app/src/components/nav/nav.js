@@ -2,22 +2,19 @@ import { useState } from 'react'
 import './nav.css'
 import MenuBlock from '../menu/menu'
 
-
 function NavBlock(props) {
   let classes = 'nav '
   if (props.addClass) {
     classes += props.addClass
   }
 
-  const [openMenu, setOpenMenu] = useState(false);
+  const [openMenu, setOpenMenu] = useState(false)
 
-  return (
-    <nav className={classes}>
-      <NavLogo addClass='nav__logo' alt='logo' />
-      <NavBurger addClass='nav__burger' openMenu={openMenu} setOpenMenu={setOpenMenu} />
-      <MenuBlock addClass='nav__menu' openMenu={openMenu} />
-    </nav>
-  );
+  return (<nav className={classes}>
+    <NavLogo addClass='nav__logo' alt='logo' />
+    <NavBurger addClass='nav__burger' openMenu={openMenu} setOpenMenu={setOpenMenu} />
+    <MenuBlock addClass='nav__menu' openMenu={openMenu} />
+  </nav>)
 }
 
 function NavLogo(props) {
@@ -26,11 +23,9 @@ function NavLogo(props) {
     classes += props.addClass
   }
 
-  return (
-    <div className={classes}>
-      <img className='logo__image' src='img/logo.png' alt={props.alt} />
-    </div>
-  );
+  return (<div className={classes}>
+    <img className='logo__image' src='img/logo.png' alt={props.alt} />
+  </div>)
 }
 
 function NavBurger(props) {
@@ -39,19 +34,15 @@ function NavBurger(props) {
     classes += props.addClass
   }
 
-  if(props.openMenu) {
+  if (props.openMenu) {
     classes += ' opened'
   }
 
-
-  return (
-    <button type='button' className={classes} onClick={() => props.setOpenMenu(!props.openMenu)}>
-      <span className='burger__line' />
-      <span className='burger__line' />
-      <span className='burger__line' />
-    </button>
-  );
+  return (<button type='button' className={classes} onClick={() => props.setOpenMenu(!props.openMenu)}>
+    <span className='burger__line' />
+    <span className='burger__line' />
+    <span className='burger__line' />
+  </button>)
 }
 
-
-export default NavBlock;
+export default NavBlock

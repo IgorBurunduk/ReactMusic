@@ -7,27 +7,20 @@ function FilterModal(props) {
     classes += ' active'
   }
 
-  let result = '';
+  let result = ''
   if (props.openedFilter === 'author') {
-    result = 'author';
+    result = 'author'
   } else if (props.openedFilter === 'year') {
     result = 'year'
   } else if (props.openedFilter === 'genre') {
     result = 'genre'
   }
 
-  // const handleClick = () => {
-  //   console.log('filter-modal clicked')
-  // }
-
   const modalStyle = {
-    left: `${props.propEl.posLeft}px`,
-    top: `${props.propEl.posTop}px`
+    left: `${props.propEl.posLeft}px`, top: `${props.propEl.posTop}px`
   }
-
 
   return (<div className={classes} data-opened={props.openedFilter} style={modalStyle}>{result}</div>)
 }
-
 
 export default FilterModal
