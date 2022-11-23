@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
+import classNames from 'classnames'
 
 function FilterButton(props) {
-    let classes = props.btnClasses
-
-    if (props.filterVar === props.openedFilter) {
-        classes += ' active'
-    }
+    const filterButtonClasses = classNames({
+        [`${props.btnClasses}`]: true,
+        'active': props.filterVar === props.openedFilter,
+    })
 
     const [posLeft, setPosLeft] = useState(0)
     const [posTop, setPosTop] = useState(0)
@@ -15,14 +15,15 @@ function FilterButton(props) {
         const elementRect = ref.current.getBoundingClientRect()
         const containerWrap = document.querySelector('.wrapper > .container')
         const containerRect = containerWrap.getBoundingClientRect()
+
         setPosLeft(elementRect.left - containerRect.left)
         setPosTop(elementRect.top + ref.current.clientHeight)
     })
- 
+
     const handleClick = () => {
         props.setOpenFilter(props.filterVar)
 
-        if (classes.split(' ').includes('active')) {
+        if (filterButtonClasses.split(' ').includes('active')) {
             props.setOpenFilter('')
             props.setPropEl(0)
         }
@@ -30,12 +31,12 @@ function FilterButton(props) {
         const propElCalc = {
             posLeft, posTop,
         }
+
         props.setPropEl(propElCalc)
     }
 
-    return (<button type='button' className={classes} onClick={handleClick}
+    return (<button type='button' className={filterButtonClasses} onClick={handleClick}
                     data-opened={props.filterVar} ref={ref}>{props.btnText}</button>)
 }
-
 
 export default FilterButton

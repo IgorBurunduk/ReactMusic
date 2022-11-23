@@ -1,12 +1,13 @@
 import './playlist-title.css'
+import classNames from 'classnames'
 
 function PlaylistTitle(props) {
-    let classes = 'playlist-title '
-    if (props.addClass) {
-        classes += props.addClass
-    }
+    const playlistTitleClasses = classNames({
+        'playlist-title': true,
+        [`${props.addClass}`]: props.addClass,
+    })
 
-    return (<div className={classes}>
+    return (<div className={playlistTitleClasses}>
         <div className='playlist-title__col col01'>Трек</div>
         <div className='playlist-title__col col02'>ИСПОЛНИТЕЛЬ</div>
         <div className='playlist-title__col col03'>АЛЬБОМ</div>

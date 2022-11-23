@@ -1,13 +1,14 @@
 import { useState } from 'react'
 import './filter.css'
+import classNames from 'classnames'
 import FilterButton from '../filter-button/filter-button'
 import FilterModal from '../filter-modal/filter-modal'
 
 function FilterBlock(props) {
-    let classes = 'filter '
-    if (props.addClass) {
-        classes += props.addClass
-    }
+    const filterBlockClasses = classNames({
+        'filter': true,
+        [`${props.addClass}`]: props.addClass,
+    })
 
     const filterButtons = [{
         filterVar: 'author', btnClasses: 'filter__button _btn-text button-author', btnText: 'исполнителю',
@@ -31,7 +32,7 @@ function FilterBlock(props) {
         setPropEl={setPropEl}
     />)
 
-    return (<div className={classes}>
+    return (<div className={filterBlockClasses}>
         <div className='filter__title'>Искать по:</div>
         {resultFilters}
         <FilterModal openedFilter={openFilter} propEl={propEl} />

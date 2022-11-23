@@ -1,13 +1,14 @@
+import classNames from 'classnames'
 import TrackPlay from '../track-play/track-play'
 import './player.css'
 
 function PlayerBlock(props) {
-    let classes = 'player '
-    if (props.addClass) {
-        classes += props.addClass
-    }
+    const playerBlockClasses = classNames({
+        'player': true,
+        [`${props.addClass}`]: props.addClass,
+    })
 
-    return (<div className={classes}>
+    return (<div className={playerBlockClasses}>
         <div className='player__controls'>
             <PlayerBtnPrev />
             <PlayerBtnPlay />

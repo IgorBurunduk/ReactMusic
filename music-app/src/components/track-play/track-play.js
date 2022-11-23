@@ -1,18 +1,23 @@
+import classNames from 'classnames'
 import './track-play.css'
 import { useEffect, useState } from 'react'
 import Skeleton from '../skeleton/skeleton'
 
 function TrackPlay(props) {
-    let classes = props.addClass ? `track-play loading ${props.addClass}` : `track-play loading `
+    let trackPlayClasses = classNames({
+        'track-play': true,
+        'loading': true,
+        [`${props.addClass}`]: props.addClass,
+    })
 
-    const [elClass, setElClass] = useState(classes)
+    const [elClass, setElClass] = useState(trackPlayClasses)
     const [load, setLoad] = useState(false)
 
     useEffect(() => {
         const loadingTimer = setTimeout(() => {
             setLoad(!load)
-            classes = classes.replace('loading ', ' ')
-            setElClass(classes)
+            trackPlayClasses = trackPlayClasses.replace('loading ', ' ')
+            setElClass(trackPlayClasses)
         }, 5000)
         return () => {
             clearTimeout(loadingTimer)

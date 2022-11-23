@@ -1,12 +1,13 @@
 import './volume.css'
+import classNames from 'classnames'
 
 function VolumeBlock(props) {
-    let classes = 'volume '
-    if (props.addClass) {
-        classes += props.addClass
-    }
+    const volumeBlockClasses = classNames({
+        'volume': true,
+        [`${props.addClass}`]: props.addClass,
+    })
 
-    return (<div className={classes}>
+    return (<div className={volumeBlockClasses}>
         <div className='volume__content'>
             <VolumeImage />
             <VolumeProgress />

@@ -1,12 +1,11 @@
-function MenuBlock(props) {
-    let classes = 'menu '
-    if (props.addClass) {
-        classes += props.addClass
-    }
+import classNames from 'classnames'
 
-    if (props.openMenu) {
-        classes += ' opened'
-    }
+function MenuBlock(props) {
+    const menuBlockClasses = classNames({
+        'menu': true,
+        'opened': props.openMenu,
+        [`${props.addClass}`]: props.addClass,
+    })
 
     const menuList = [{
         link: 'https://', text: 'Главное',
@@ -17,7 +16,7 @@ function MenuBlock(props) {
     }]
 
 
-    return (<div className={classes}>
+    return (<div className={menuBlockClasses}>
         <ul className='menu__list'>
             {menuList.map((item) => <MenuItem key={item.text} link={item.link} text={item.text} />)}
         </ul>

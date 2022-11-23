@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import classNames from 'classnames'
 import './playlist.css'
 import TrackBlock from '../track/track'
 import Skeleton from '../skeleton/skeleton'
@@ -46,16 +47,20 @@ const allTracks = [{
 }]
 
 function PlaylistBlock(props) {
-    let classes = props.addClass ? `playlist loading ${props.addClass}` : `playlist loading `
+    let playlistBlockClasses = classNames({
+        'playlist': true,
+        'loading': true,
+        [`${props.addClass}`]: props.addClass,
+    })
 
-    const [elClass, setElClass] = useState(classes)
+    const [elClass, setElClass] = useState(playlistBlockClasses)
     const [load, setLoad] = useState(false)
 
     useEffect(() => {
         const loadingTimer = setTimeout(() => {
             setLoad(!load)
-            classes = classes.replace('loading ', ' ')
-            setElClass(classes)
+            playlistBlockClasses = playlistBlockClasses.replace('loading ', ' ')
+            setElClass(playlistBlockClasses)
         }, 5000)
         return () => {
             clearTimeout(loadingTimer)

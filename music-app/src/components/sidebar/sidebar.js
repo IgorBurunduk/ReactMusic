@@ -1,14 +1,15 @@
+import classNames from 'classnames'
 import './sidebar.css'
 import { useEffect, useState } from 'react'
 import Skeleton from '../skeleton/skeleton'
 
 function SidebarBlock(props) {
-    let classes = 'sidebar '
-    if (props.addClass) {
-        classes += props.addClass
-    }
+    const sidebarBlockClasses = classNames({
+        'sidebar': true,
+        [`${props.addClass}`]: props.addClass,
+    })
 
-    return (<div className={classes}>
+    return (<div className={sidebarBlockClasses}>
         <SidebarPersonal name='Sergey.Ivanov' />
         <div className='sidebarBlock'>
             <SidebarList />
@@ -32,16 +33,20 @@ function SidebarList() {
 }
 
 function SidebarItem(props) {
-    let classes = props.addClass ? `sidebar__item loading ${props.addClass}` : `sidebar__item loading `
+    let sidebarItemClasses = classNames({
+        'sidebar__item': true,
+        'loading': true,
+        [`${props.addClass}`]: props.addClass,
+    })
 
-    const [elClass, setElClass] = useState(classes)
+    const [elClass, setElClass] = useState(sidebarItemClasses)
     const [load, setLoad] = useState(false)
 
     useEffect(() => {
         const loadingTimer = setTimeout(() => {
             setLoad(!load)
-            classes = classes.replace('loading ', ' ')
-            setElClass(classes)
+            sidebarItemClasses = sidebarItemClasses.replace('loading ', ' ')
+            setElClass(sidebarItemClasses)
         }, 5000)
         return () => {
             clearTimeout(loadingTimer)

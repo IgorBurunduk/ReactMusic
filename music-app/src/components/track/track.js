@@ -1,12 +1,13 @@
 import './track.css'
+import classNames from 'classnames'
 
 function TrackBlock(props) {
-    let classes = 'track '
-    if (props.addClass) {
-        classes += props.addClass
-    }
+    const trackBlockClasses = classNames({
+        'track': true,
+        [`${props.addClass}`]: props.addClass,
+    })
 
-    return (<div className={classes}>
+    return (<div className={trackBlockClasses}>
         <TrackTitle link={props.track.link} type={props.track.typeSong} name={props.track.name} />
         <TrackAuthor link={props.author.link} name={props.author.name} />
         <TrackAlbum link={props.album.link} name={props.album.name} />

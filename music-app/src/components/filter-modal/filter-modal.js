@@ -1,11 +1,11 @@
 import './filter-modal.css'
+import classNames from 'classnames'
 
 function FilterModal(props) {
-    let classes = 'filter__modal'
-
-    if (props.openedFilter) {
-        classes += ' active'
-    }
+    const filterModalClasses = classNames({
+        'filter__modal': true,
+        'active': props.openedFilter,
+    })
 
     let result = ''
     if (props.openedFilter === 'author') {
@@ -20,7 +20,7 @@ function FilterModal(props) {
         left: `${props.propEl.posLeft}px`, top: `${props.propEl.posTop}px`,
     }
 
-    return (<div className={classes} data-opened={props.openedFilter} style={modalStyle}>{result}</div>)
+    return (<div className={filterModalClasses} data-opened={props.openedFilter} style={modalStyle}>{result}</div>)
 }
 
 export default FilterModal
