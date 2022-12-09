@@ -1,46 +1,59 @@
 import classNames from 'classnames'
 import { useState } from 'react'
-import './nav.css'
+import s from '../../css/nav.module.css'
 import MenuBlock from '../menu/menu'
 
 function NavBlock(props) {
     const navBlockClasses = classNames({
-        'nav': true,
+        nav: true,
         [`${props.addClass}`]: props.addClass,
     })
 
     const [openMenu, setOpenMenu] = useState(false)
 
-    return (<nav className={navBlockClasses}>
-        <NavLogo addClass='nav__logo' alt='logo' />
-        <NavBurger addClass='nav__burger' openMenu={openMenu} setOpenMenu={setOpenMenu} />
-        <MenuBlock addClass='nav__menu' openMenu={openMenu} />
-    </nav>)
+    return (
+        <nav className={navBlockClasses}>
+            <NavLogo addClass={s.logo} alt="logo" />
+            <NavBurger
+                addClass={s.burger}
+                openMenu={openMenu}
+                setOpenMenu={setOpenMenu}
+            />
+            <MenuBlock addClass={s.menu} openMenu={openMenu} />
+        </nav>
+    )
 }
 
 function NavLogo(props) {
     const navLogoClasses = classNames({
-        'logo': true,
+        [s.logo]: true,
         [`${props.addClass}`]: props.addClass,
     })
 
-    return (<div className={navLogoClasses}>
-        <img className='logo__image' src='img/logo.png' alt={props.alt} />
-    </div>)
+    return (
+        <div className={navLogoClasses}>
+            <img className={s.logoImage} src="img/logo.png" alt={props.alt} />
+        </div>
+    )
 }
 
 function NavBurger(props) {
     const navBurgerClasses = classNames({
-        'burger': true,
-        'opened': props.openMenu,
+        [s.burger]: true,
+        opened: props.openMenu,
         [`${props.addClass}`]: props.addClass,
     })
 
-    return (<button type='button' className={navBurgerClasses} onClick={() => props.setOpenMenu(!props.openMenu)}>
-        <span className='burger__line' />
-        <span className='burger__line' />
-        <span className='burger__line' />
-    </button>)
+    return (
+        <button
+            type="button"
+            className={navBurgerClasses}
+            onClick={() => props.setOpenMenu(!props.openMenu)}>
+            <span className={s.burger_line} />
+            <span className={s.burger_line} />
+            <span className={s.burger_line} />
+        </button>
+    )
 }
 
 export default NavBlock

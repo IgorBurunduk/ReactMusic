@@ -1,10 +1,10 @@
-import './filter-modal.css'
 import classNames from 'classnames'
+import s from '../../css/filter.module.css'
 
 function FilterModal(props) {
     const filterModalClasses = classNames({
-        'filter__modal': true,
-        'active': props.openedFilter,
+        [s.modal]: true,
+        active: props.openedFilter,
     })
 
     let result = ''
@@ -17,10 +17,18 @@ function FilterModal(props) {
     }
 
     const modalStyle = {
-        left: `${props.propEl.posLeft}px`, top: `${props.propEl.posTop}px`,
+        left: `${props.propEl.posLeft}px`,
+        top: `${props.propEl.posTop}px`,
     }
 
-    return (<div className={filterModalClasses} data-opened={props.openedFilter} style={modalStyle}>{result}</div>)
+    return (
+        <div
+            className={filterModalClasses}
+            data-opened={props.openedFilter}
+            style={modalStyle}>
+            {result}
+        </div>
+    )
 }
 
 export default FilterModal
