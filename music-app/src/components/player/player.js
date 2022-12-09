@@ -1,6 +1,7 @@
 import classNames from 'classnames'
 import TrackPlay from '../track-play/track-play'
-import '../../css/player.module.css'
+import p from '../../css/player.module.css'
+import b from '../../css/btn.module.css'
 
 function PlayerBlock(props) {
     const playerBlockClasses = classNames({
@@ -10,22 +11,22 @@ function PlayerBlock(props) {
 
     return (
         <div className={playerBlockClasses}>
-            <div className="player__controls">
+            <div className={p.controls}>
                 <PlayerBtnPrev />
                 <PlayerBtnPlay />
                 <PlayerBtnNext />
                 <PlayerBtnRepeat />
                 <PlayerBtnShuffle />
             </div>
-            <TrackPlay addClass="player__track-play" />
+            <TrackPlay addClass={p.track_play} />
         </div>
     )
 }
 
 function PlayerBtnPrev() {
     return (
-        <div className="player__btn-prev">
-            <svg className="player__btn-prev-svg" alt="prev">
+        <div className={b.prev}>
+            <svg className={b.prev_svg} alt="prev">
                 <use xlinkHref="img/icon/sprite.svg#icon-prev" />
             </svg>
         </div>
@@ -34,8 +35,8 @@ function PlayerBtnPrev() {
 
 function PlayerBtnPlay() {
     return (
-        <div className="player__btn-play _btn">
-            <svg className="player__btn-play-svg" alt="play">
+        <div className={b.play}>
+            <svg className={b.play_svg} alt="play">
                 <use xlinkHref="img/icon/sprite.svg#icon-play" />
             </svg>
         </div>
@@ -44,8 +45,8 @@ function PlayerBtnPlay() {
 
 function PlayerBtnNext() {
     return (
-        <div className="player__btn-next">
-            <svg className="player__btn-next-svg" alt="next">
+        <div className={b.next}>
+            <svg className={b.next_svg} alt="next">
                 <use xlinkHref="img/icon/sprite.svg#icon-next" />
             </svg>
         </div>
@@ -53,9 +54,10 @@ function PlayerBtnNext() {
 }
 
 function PlayerBtnRepeat() {
+    const btnClasses = classNames([b.repeat, '_btn_icon'])
     return (
-        <div className="player__btn-repeat _btn-icon">
-            <svg className="player__btn-repeat-svg" alt="repeat">
+        <div className={btnClasses}>
+            <svg className={b.repeat_svg} alt="repeat">
                 <use xlinkHref="img/icon/sprite.svg#icon-repeat" />
             </svg>
         </div>
@@ -63,9 +65,10 @@ function PlayerBtnRepeat() {
 }
 
 function PlayerBtnShuffle() {
+    const btnClasses = classNames([b.shuffle, '_btn_icon'])
     return (
-        <div className="player__btn-shuffle _btn-icon">
-            <svg className="player__btn-shuffle-svg" alt="shuffle">
+        <div className={btnClasses}>
+            <svg className={b.shuffle_svg} alt="shuffle">
                 <use xlinkHref="img/icon/sprite.svg#icon-shuffle" />
             </svg>
         </div>

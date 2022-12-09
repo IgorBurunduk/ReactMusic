@@ -1,0 +1,99 @@
+
+.text:hover {
+    border-color: #D9B6FF;
+    color: #D9B6FF;
+    cursor: pointer;
+}
+
+.icon:hover svg {
+    fill: transparent;
+    stroke: #ACACAC;
+    cursor: pointer;
+}
+
+.text:active, .text_active {
+    border-color: #AD61FF;
+    color: #AD61FF;
+    cursor: pointer;
+}
+
+.icon:active svg {
+    fill: transparent;
+    stroke: #FFFFFF;
+    cursor: pointer;
+}
+
+.icon:active .track-play__like_svg,
+.icon:active .track-play__dislike_svg {
+    fill: #696969;
+    stroke: #FFFFFF;
+    cursor: pointer;
+}
+
+.prev, .play, .next, .repeat, .shuffle {
+    padding: 5px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.prev {
+    margin-right: 23px;
+}
+
+.prev_svg {
+    width: 15px;
+    height: 14px;
+}
+
+.play {
+    margin-right: 23px;
+}
+
+.play_svg {
+    width: 22px;
+    height: 20px;
+    fill: #D9D9D9;
+}
+
+.next {
+    margin-right: 28px;
+    fill: #a53939;
+}
+
+.next_svg {
+    width: 15px;
+    height: 14px;
+    fill: inherit;
+    stroke: #D9D9D9;
+}
+
+.repeat {
+    margin-right: 24px;
+}
+
+.repeat_svg {
+    width: 18px;
+    height: 12px;
+    fill: transparent;
+    stroke: #696969;
+}
+
+.shuffle {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.shuffle_svg {
+    width: 19px;
+    height: 12px;
+    fill: transparent;
+    stroke: #696969;
+}

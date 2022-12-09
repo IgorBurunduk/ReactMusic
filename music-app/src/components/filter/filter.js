@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import classNames from 'classnames'
 import s from '../../css/filter.module.css'
+import btn from '../../css/btn.module.css'
 import FilterButton from '../filter-button/filter-button'
 import FilterModal from '../filter-modal/filter-modal'
 
@@ -13,17 +14,17 @@ function FilterBlock(props) {
     const filterButtons = [
         {
             filterVar: 'author',
-            btnClasses: `${s.button} _btn-text button-author`,
+            btnClasses: `${s.button} ${btn.text} button-author`,
             btnText: 'исполнителю',
         },
         {
             filterVar: 'year',
-            btnClasses: `${s.button} _btn-text button-year`,
+            btnClasses: `${s.button} ${btn.text} button-year`,
             btnText: 'году выпуска',
         },
         {
             filterVar: 'genre',
-            btnClasses: `${s.button}  _btn-text button-genre`,
+            btnClasses: `${s.button} ${btn.text} button-genre`,
             btnText: 'жанру',
         },
     ]
@@ -31,12 +32,12 @@ function FilterBlock(props) {
     const [openFilter, setFilters] = useState('')
     const [propEl, setPropEl] = useState(0)
 
-    const resultFilters = filterButtons.map((btn) => (
+    const resultFilters = filterButtons.map((elem) => (
         <FilterButton
-            key={btn.btnText}
-            filterVar={btn.filterVar}
-            btnClasses={btn.btnClasses}
-            btnText={btn.btnText}
+            key={elem.btnText}
+            filterVar={elem.filterVar}
+            btnClasses={elem.btnClasses}
+            btnText={elem.btnText}
             openedFilter={openFilter}
             setOpenFilter={setFilters}
             propEl={propEl}

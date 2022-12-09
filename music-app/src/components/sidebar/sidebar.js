@@ -1,6 +1,6 @@
 import classNames from 'classnames'
-import '../../css/sidebar.module.css'
 import { useEffect, useState } from 'react'
+import s from '../../css/sidebar.module.css'
 import Skeleton from '../skeleton/skeleton'
 
 function SidebarBlock(props) {
@@ -21,16 +21,16 @@ function SidebarBlock(props) {
 
 function SidebarPersonal(props) {
     return (
-        <div className="sidebar__personal">
-            <p className="sidebar__personal-name">{props.name}</p>
-            <div className="sidebar__avatar" />
+        <div className={s.personal}>
+            <p className={s.personal_name}>{props.name}</p>
+            <div className={s.avatar} />
         </div>
     )
 }
 
 function SidebarList() {
     return (
-        <div className="sidebar__list">
+        <div className={s.list}>
             <SidebarItem
                 link="https://"
                 imageSrc="img/playlist01.png"
@@ -52,7 +52,7 @@ function SidebarList() {
 
 function SidebarItem(props) {
     let sidebarItemClasses = classNames({
-        sidebar__item: true,
+        [s.item]: true,
         loading: true,
         [`${props.addClass}`]: props.addClass,
     })
@@ -74,9 +74,9 @@ function SidebarItem(props) {
     return (
         <div className={elClass}>
             {load ? (
-                <a className="sidebar__link" href={props.link}>
+                <a className={s.link} href={props.link}>
                     <img
-                        className="sidebar__img"
+                        className={s.img}
                         src={props.imageSrc}
                         alt={props.imageAlt}
                     />

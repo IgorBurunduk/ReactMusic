@@ -4,7 +4,7 @@ import s from '../../css/nav.module.css'
 function MenuBlock(props) {
     const menuBlockClasses = classNames({
         [s.menu]: true,
-        opened: props.openMenu,
+        [s.opened]: props.openMenu,
         [`${props.addClass}`]: props.addClass,
     })
 

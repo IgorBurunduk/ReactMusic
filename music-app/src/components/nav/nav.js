@@ -40,7 +40,7 @@ function NavLogo(props) {
 function NavBurger(props) {
     const navBurgerClasses = classNames({
         [s.burger]: true,
-        opened: props.openMenu,
+        [s.opened]: props.openMenu,
         [`${props.addClass}`]: props.addClass,
     })
 

@@ -1,5 +1,5 @@
 
-.sidebar__personal {
+.personal {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -16,7 +16,7 @@
     padding: 12px 0 15px 0;
 }
 
-.sidebar__personal-name {
+.personal_name {
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -25,14 +25,14 @@
     margin-right: 16px;
 }
 
-.sidebar__avatar {
+.avatar {
     width: 43px;
     height: 43px;
     background-color: #313131;
     border-radius: 50%;
 }
 
-.sidebar__block {
+.block {
     height: 100%;
     padding: 240px 0 0 0;
     display: -webkit-box;
@@ -47,7 +47,7 @@
     justify-content: flex-start;
 }
 
-.sidebar__list {
+.list {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -60,21 +60,21 @@
     align-items: center;
 }
 
-.sidebar__item {
+.item {
     width: 250px;
     height: 150px;
 }
 
-.sidebar__item:not(:last-child) {
+.item:not(:last-child) {
     margin-bottom: 30px;
 }
 
-.sidebar__link {
+.link {
     width: 100%;
     height: 100%;
 }
 
-.sidebar__img {
+.img {
     width: 100%;
     height: auto;
 }

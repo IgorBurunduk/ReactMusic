@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
 import classNames from 'classnames'
+import btn from '../../css/btn.module.css'
 
 function FilterButton(props) {
     const filterButtonClasses = classNames({
         [`${props.btnClasses}`]: true,
-        active: props.filterVar === props.openedFilter,
+        [btn.text_active]: props.filterVar === props.openedFilter,
     })
     const [posLeft, setPosLeft] = useState(0)
     const [posTop, setPosTop] = useState(0)
@@ -15,11 +16,6 @@ function FilterButton(props) {
         const containerWrap = document.querySelector('.wrapper > .container')
         const containerRect = containerWrap.getBoundingClientRect()
 
-        // eslint-disable-next-line no-console
-        console.log(elementRect)
-        // eslint-disable-next-line no-console
-        console.log(containerWrap)
-
         setPosLeft(elementRect.left - containerRect.left)
         setPosTop(elementRect.top + ref.current.clientHeight)
     })
@@ -27,7 +23,7 @@ function FilterButton(props) {
     const handleClick = () => {
         props.setOpenFilter(props.filterVar)
 
-        if (filterButtonClasses.split(' ').includes('active')) {
+        if (filterButtonClasses.split(' ').includes(btn.text_active)) {
             props.setOpenFilter('')
             props.setPropEl(0)
         }

@@ -4,7 +4,7 @@ import s from '../../css/filter.module.css'
 function FilterModal(props) {
     const filterModalClasses = classNames({
         [s.modal]: true,
-        active: props.openedFilter,
+        [s.modal_active]: props.openedFilter,
     })
 
     let result = ''

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import classNames from 'classnames'
-import '../../css/playlist.module.css'
+import s from '../../css/playlist.module.css'
 import TrackBlock from '../track/track'
 import Skeleton from '../skeleton/skeleton'
 
@@ -135,9 +135,9 @@ function PlaylistBlock(props) {
 
 function PlaylistItem(props) {
     return (
-        <div className="playlist__item">
+        <div className={s.item}>
             <TrackBlock
-                addClass="playlist__track"
+                addClass={s.track}
                 track={props.track}
                 author={props.author}
                 album={props.album}

@@ -233,34 +233,3 @@ body {
     background-color: #383838;
 }
 
-
-:global ._btn-text:hover {
-    border-color: #D9B6FF;
-    color: #D9B6FF;
-    cursor: pointer;
-}
-
-:global ._btn-icon:hover svg {
-    fill: transparent;
-    stroke: #ACACAC;
-    cursor: pointer;
-}
-
-:global ._btn-text:active, :global ._btn-text.active {
-    border-color: #AD61FF;
-    color: #AD61FF;
-    cursor: pointer;
-}
-
-:global ._btn-icon:active svg {
-    fill: transparent;
-    stroke: #FFFFFF;
-    cursor: pointer;
-}
-
-:global ._btn-icon:active .track-play__like-svg,
-:global ._btn-icon:active .track-play__dislike-svg {
-    fill: #696969;
-    stroke: #FFFFFF;
-    cursor: pointer;
-}

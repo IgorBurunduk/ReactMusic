@@ -1,5 +1,5 @@
-import '../../css/track.module.css'
 import classNames from 'classnames'
+import s from '../../css/track.module.css'
 
 function TrackBlock(props) {
     const trackBlockClasses = classNames({
@@ -23,16 +23,16 @@ function TrackBlock(props) {
 
 function TrackTitle(props) {
     return (
-        <div className="track__title">
-            <div className="track__title-image">
-                <svg className="track__title-svg" alt="music">
+        <div className={s.title}>
+            <div className={s.title_image}>
+                <svg className={s.title_svg} alt="music">
                     <use xlinkHref="img/icon/sprite.svg#icon-note" />
                 </svg>
             </div>
-            <div className="track__title-text">
-                <a className="track__title-link" href={props.link}>
+            <div className={s.title_text}>
+                <a className={s.title_link} href={props.link}>
                     {props.name}{' '}
-                    <span className="track__title-span">{props.typeSong}</span>
+                    <span className={s.title_span}>{props.typeSong}</span>
                 </a>
             </div>
         </div>
@@ -41,8 +41,8 @@ function TrackTitle(props) {
 
 function TrackAuthor(props) {
     return (
-        <div className="track__author">
-            <a className="track__author-link" href={props.link}>
+        <div className={s.author}>
+            <a className={s.author_link} href={props.link}>
                 {props.name}
             </a>
         </div>
@@ -51,8 +51,8 @@ function TrackAuthor(props) {
 
 function TrackAlbum(props) {
     return (
-        <div className="track__album">
-            <a className="track__album-link" href={props.link}>
+        <div className={s.album}>
+            <a className={s.album_link} href={props.link}>
                 {props.name}
             </a>
         </div>
@@ -61,11 +61,11 @@ function TrackAlbum(props) {
 
 function TrackTime(props) {
     return (
-        <div className="track__time">
-            <svg className="track__time-svg" alt="time">
+        <div className={s.time}>
+            <svg className={s.time_svg} alt="time">
                 <use xlinkHref="img/icon/sprite.svg#icon-like" />
             </svg>
-            <span className="track__time-text">{props.time}</span>
+            <span className={s.time_text}>{props.time}</span>
         </div>
     )
 }

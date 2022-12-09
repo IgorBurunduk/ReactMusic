@@ -1,5 +1,5 @@
 
-.search__svg {
+.svg {
     width: 17px;
     height: 17px;
     margin-right: 5px;
@@ -7,7 +7,7 @@
     fill: transparent;
 }
 
-.search__text {
+.text {
     -webkit-box-flex: 100;
     -ms-flex-positive: 100;
     flex-grow: 100;
@@ -21,7 +21,7 @@
     color: #FFFFFF;
 }
 
-.search__text::-webkit-input-placeholder {
+.text::-webkit-input-placeholder {
     background-color: transparent;
     color: #FFFFFF;
     font-style: normal;
@@ -30,7 +30,7 @@
     line-height: 24px;
 }
 
-.search__text:-ms-input-placeholder {
+.text:-ms-input-placeholder {
     background-color: transparent;
     color: #FFFFFF;
     font-style: normal;
@@ -39,7 +39,7 @@
     line-height: 24px;
 }
 
-.search__text::-ms-input-placeholder {
+.text::-ms-input-placeholder {
     background-color: transparent;
     color: #FFFFFF;
     font-style: normal;
@@ -48,7 +48,7 @@
     line-height: 24px;
 }
 
-.search__text::placeholder {
+.text::placeholder {
     background-color: transparent;
     color: #FFFFFF;
     font-style: normal;

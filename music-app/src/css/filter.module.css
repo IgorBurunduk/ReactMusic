@@ -36,7 +36,7 @@
     padding: 34px;
 }
 
-.modal.active {
+.modal_active {
     opacity: 1;
     visibility: visible;
 }
