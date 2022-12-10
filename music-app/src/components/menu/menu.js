@@ -1,48 +1,51 @@
+import classNames from 'classnames'
+import s from '../../css/nav.module.css'
+
 function MenuBlock(props) {
-  let classes = 'menu '
-  if (props.addClass) {
-    classes += props.addClass
-  }
+    const menuBlockClasses = classNames({
+        [s.menu]: true,
+        [s.opened]: props.openMenu,
+        [`${props.addClass}`]: props.addClass,
+    })
 
-  if(props.openMenu) {
-    classes += ' opened'
-  }
-
-  const menuList = [
-    {
-      link: 'https://',
-      text: 'Главное'
-    },
-    {
-      link: 'https://',
-      text: 'Мой плейлист'
-    },
-    {
-      link: 'https://',
-      text: 'Войти'
-    }
-  ]
-
-
-  return (
-    <div className={classes}>
-      <ul className='menu__list'>
+    const menuList = [
         {
-          menuList.map((item)=>
-            <MenuItem key={item.text} link={item.link} text={item.text} />
-          )
-        }
-      </ul>
-    </div>
-  );
+            link: 'https://',
+            text: 'Главное',
+        },
+        {
+            link: 'https://',
+            text: 'Мой плейлист',
+        },
+        {
+            link: 'https://',
+            text: 'Войти',
+        },
+    ]
+
+    return (
+        <div className={menuBlockClasses}>
+            <ul className={s.list}>
+                {menuList.map((item) => (
+                    <MenuItem
+                        key={item.text}
+                        link={item.link}
+                        text={item.text}
+                    />
+                ))}
+            </ul>
+        </div>
+    )
 }
 
-function MenuItem(props){
-  return (
-    <li className='menu__item'>
-      <a href={props.link} className='menu__link'>{props.text}</a>
-    </li>
-  );
+function MenuItem(props) {
+    return (
+        <li className={s.item}>
+            <a href={props.link} className={s.link}>
+                {props.text}
+            </a>
+        </li>
+    )
 }
 
-export default MenuBlock;
+export default MenuBlock

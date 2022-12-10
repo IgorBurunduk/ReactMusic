@@ -1,0 +1,42 @@
+
+.title {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    padding-right: 15px;
+}
+
+.button {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    background: transparent;
+    color: #fff;
+    line-height: 24px;
+    border: 1px solid #FFFFFF;
+    border-radius: 60px;
+    padding: 6px 20px;
+}
+
+.modal {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin-top: 10px;
+    background: #313131;
+    color: #fff;
+    font-size: 2rem;
+    display: block;
+    border-radius: 12px;
+    width: auto;
+    height: auto;
+    padding: 34px;
+}
+
+.modal_active {
+    opacity: 1;
+    visibility: visible;
+}

@@ -1,33 +1,34 @@
-import './filter-modal.css'
+import classNames from 'classnames'
+import s from '../../css/filter.module.css'
 
 function FilterModal(props) {
-  let classes = 'filter__modal'
+    const filterModalClasses = classNames({
+        [s.modal]: true,
+        [s.modal_active]: props.openedFilter,
+    })
 
-  if (props.openedFilter) {
-    classes += ' active'
-  }
+    let result = ''
+    if (props.openedFilter === 'author') {
+        result = 'author'
+    } else if (props.openedFilter === 'year') {
+        result = 'year'
+    } else if (props.openedFilter === 'genre') {
+        result = 'genre'
+    }
 
-  let result = '';
-  if (props.openedFilter === 'author') {
-    result = 'author';
-  } else if (props.openedFilter === 'year') {
-    result = 'year'
-  } else if (props.openedFilter === 'genre') {
-    result = 'genre'
-  }
+    const modalStyle = {
+        left: `${props.propEl.posLeft}px`,
+        top: `${props.propEl.posTop}px`,
+    }
 
-  // const handleClick = () => {
-  //   console.log('filter-modal clicked')
-  // }
-
-  const modalStyle = {
-    left: `${props.propEl.posLeft}px`,
-    top: `${props.propEl.posTop}px`
-  }
-
-
-  return (<div className={classes} data-opened={props.openedFilter} style={modalStyle}>{result}</div>)
+    return (
+        <div
+            className={filterModalClasses}
+            data-opened={props.openedFilter}
+            style={modalStyle}>
+            {result}
+        </div>
+    )
 }
-
 
 export default FilterModal
